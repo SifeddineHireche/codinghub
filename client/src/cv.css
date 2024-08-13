@@ -1,0 +1,244 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    color: #333;
+  }
+  
+  header {
+    background-color: #C0C0C0;
+    color: white;
+    text-align: center;
+    padding: 100px 20px;
+  }
+  
+  .header-content h1 {
+    margin: 0;
+    font-size: 3em;
+    font-weight: bold;
+  }
+  
+  .header-content p {
+    font-size: 1.5em;
+    margin: 10px 0 0;
+  }
+  
+  nav {
+    text-align: center;
+    margin: 20px 0;
+  }
+  
+  nav button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 10px;
+    cursor: pointer;
+    font-size: 1em;
+    border-radius: 5px;
+  }
+  
+  nav button:hover {
+    background-color: #45a049;
+  }
+  
+  section {
+    padding: 60px 20px;
+    text-align: center;
+  }
+  
+  .about {
+    background-color: #fff;
+    color: #333;
+    padding: 60px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    max-width: 800px;
+    border-radius: 8px;
+  }
+  
+  .timeline {
+    padding: 60px 20px;
+    background-color: #e8f5e9;
+  }
+  
+  .timeline h2 {
+    margin-bottom: 40px;
+  }
+  
+  .timeline-container {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .timeline-item {
+    margin: 20px 0;
+    position: relative;
+    width: 100%;
+    padding-left: 40px;
+    text-align: left;
+  }
+  
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: 20px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: #4CAF50;
+  }
+  
+  .timeline-item::after {
+    content: '';
+    position: absolute;
+    left: 14px;
+    top: 20px;
+    width: 12px;
+    height: 12px;
+    background-color: white;
+    border: 2px solid #4CAF50;
+    border-radius: 50%;
+  }
+  
+  .contact {
+    background-color: #fff;
+    color: #333;
+    padding: 60px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    max-width: 800px;
+    border-radius: 8px;
+  }
+  
+  footer {
+    background-color: #C0C0C0;
+    color: f9f9f92f;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .avatar {
+    width: 80px; 
+    height: auto;
+    border-radius: 50%; 
+    margin-right: 20px; 
+    float: left; 
+  }
+  .emailPic {
+    width: 40px; 
+    height: auto;
+    border-radius: 50%; 
+    margin-right: 20px; 
+  }
+  .app-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .experience-sections-container {
+    display: flex;
+    justify-content: space-around; 
+    flex-wrap: nowrap; 
+    max-width: 1000px;
+    margin-top: 20px; 
+  }
+  
+  
+  .experience-section {
+    background-color: #f9f9f9;
+    border: 2px solid #ccc;
+    border-radius: 8px; 
+    padding: 20px;
+    width: 300px; 
+    margin: 10px; 
+    display: flex;
+    align-items: center;
+    height: 300px;
+  }
+  
+  .check-icon {
+    width: 60px; 
+    height: auto;
+    margin-right: 20px; 
+  }
+  
+  .text-content {
+    flex: 1; 
+    text-align: left; 
+  }
+  
+  .text-content h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+  }
+  
+  .text-content p {
+    font-size: 1em;
+    line-height: 1.6;
+  }
+  
+.tableHab {
+    margin-top: 20px;
+    margin-left:50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    align-items: center;
+    
+  }
+  
+  .contact {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  .contact-item {
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    margin-bottom: 10px;
+  }
+  
+  .contact-item span{
+    color: #0073b1;
+  }
+  
+  .emailPic {
+    width: 40px; 
+    height: auto;
+    margin-right: 10px; 
+  }
+  
+  .linkedPic {
+    width: 30px; 
+    height: auto;
+    margin-right: 10px; 
+  }
+  
+  .contact a {
+    color: #0073b1; 
+    text-decoration: none;
+  }
+  
+  .contact a:hover {
+    text-decoration: underline;
+  }
+  
+  .githubPic {
+    width: 60px; 
+    height: auto;
+    margin-right: 10px; 
+  }
+  
+  @media (max-width:900px){
+    .tableHab {
+        display: flex   ;
+        flex-direction: column;
+      }
+  }
