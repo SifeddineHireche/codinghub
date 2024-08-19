@@ -20,7 +20,7 @@ const ProfilTable = ({ profilsList, isAdmin, editProfil, deleted, handleDetailCl
       { accessorKey: 'disponibilite', header: 'Disponibilités', size: 150 },
       { accessorKey: 'mobilite', header: 'Mobilité', size: 150 },
       { accessorKey: 'statu', header: 'Status', size: 150 },
-      { accessorKey: 'contact', header: isAdmin ? 'Contact' : '', size: 150 },
+      ...(isAdmin ? [{ accessorKey: 'contact', header: 'Contact', size: 150 }] : []),
       {
         accessorKey: 'actions',
         header: 'Actions',

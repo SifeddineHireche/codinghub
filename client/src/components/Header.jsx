@@ -3,7 +3,7 @@ import avatar from '../codinghub.png';
 
 
 const Header = ({ name, title }) => (
-  <header className="header-content-cv">
+  <header className="header-content">
     <img src={avatar} alt="Avatar" className="avatar" /> 
     <div className="header-text-cv">
       <h1>{name}</h1>

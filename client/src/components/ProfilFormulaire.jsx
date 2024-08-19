@@ -249,6 +249,7 @@ const ProfilFormulaire = () => {
                 required
               >
                 <option value="">...</option>
+                <option value="100 % teletravail">100 % télétravail</option>
                 {mobil.map(Mobilité=> (
                   <option key={Mobilité} value={Mobilité}>
                     {Mobilité}
