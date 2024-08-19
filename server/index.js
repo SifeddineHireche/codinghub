@@ -19,6 +19,7 @@ const db = mysql.createConnection({
 });
 
 
+
 app.post('/create',(request,response)=>{
     const profil=request.body.profil;
     const titre=request.body.titre;
@@ -30,8 +31,8 @@ app.post('/create',(request,response)=>{
     const statu=request.body.statu;
     const contact=request.body.contact;
    
-     result = db.query('INSERT INTO profils(profil,titre,experience,tjm,stack,disponibilite,mobilite,statu,contact) VALUES (?,?,?,?,?,?,?,?,?)',
-        [profil,titre,experience,tjm,stack,disponibilite,mobilite,statu,contact],
+     result = db.query('INSERT INTO profils(profil,titre,experience,tjm,stack,disponibilite,mobilite,statu,contact, isApproved) VALUES (?,?,?,?,?,?,?,?,?,?)',
+        [profil,titre,experience,tjm,stack,disponibilite,mobilite,statu,contact, false],
         (err,result)=> {if(err){
             console.log(err);
         }else{
@@ -41,7 +42,7 @@ app.post('/create',(request,response)=>{
 });
 
 app.get("/profils",(request,response)=>{
-    db.query('SELECT * FROM profils',
+    db.query('SELECT * FROM profils  WHERE isApproved like TRUE',
     (err,result)=>{
         if(err){
             console.log(err);
@@ -63,9 +64,7 @@ const { Resend } = require('resend');
 
 app.use(bodyParser.json()); // Para manejar JSON en el cuerpo de la solicitud
 
-app.listen(port, () => {
-    console.log(`Server running at http://localhost:${port}`);
-  });
+
 app.put("/update",(request,response)=>{
     const id = request.body.id;
     const profil=request.body.profil;
@@ -103,7 +102,7 @@ app.delete("/delete/:id",(request,response)=>{
 app.get("/findProfil/:id",(request,response)=>{
    
     const id = request.params.id;
-    db.query('SELECT * FROM profils INNER JOIN profilsdetails ON profils.id = profilsdetails.id_profil Where id_profil=? ',id,
+    db.query('SELECT * FROM profils INNER JOIN profilsdetails ON profils.id = profilsdetails.id_profil Where id_profil=?',id,
         (err,result)=> {
         if(err){
             console.log(err);
@@ -204,7 +203,7 @@ app.post('/createDetails', (req, res) => {
   
     const sqlInsertProfilDetails = "INSERT INTO profilsdetails (id_profil, nom, anneDebut, anneFin, entreprise, description) VALUES (?, ?, ?, ?, ?, ?)";
     
-    db.query(sqlInsertProfilDetails, [id_profil, nom, anneDebut, anneFin, entreprise, description], (err, result) => {
+    db.query(sqlInsertProfilDetails, [id_profil, nom, anneDebut, anneFin, entreprise, description,0], (err, result) => {
       if (err) {
         console.error(err);
         res.status(500).send("Error inserting into profilsdetails");

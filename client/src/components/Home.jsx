@@ -1,6 +1,7 @@
 import React , { useState, useEffect }from 'react'
 import {Link, useNavigate} from "react-router-dom";
 import Contact from './Contact';
+import ProfilTable from './ProfilTable';
 
 import Axios from 'axios';
 import '../App.css';
@@ -325,47 +326,13 @@ return (
       </>
     )}
 
-    <table className="table table-striped mt-4">
-      <thead>
-        <tr>
-          <th scope="col">#</th>
-          <th scope="col">{isAdmin ? `Profil` : ``}</th>
-          <th scope="col">Titre</th>
-          <th scope="col">Années d'expérience</th>
-          <th scope="col">TJM</th>
-          <th scope="col">Stack tecknique</th>
-          <th scope="col">Disponibilités</th>
-          <th scope="col">Mobilité</th>
-          <th scope="col">Status</th>
-          <th scope="col">{isAdmin ? `Contact` : ``}</th>
-          <th scope="col">Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        {profilsList.map((val) => (
-          <tr key={val.id}>
-            <th>{val.id}</th>
-            <td>{isAdmin ? val.profil : ``}</td>
-            <td>{val.titre}</td>
-            <td>{val.experience}</td>
-            <td>{val.tjm}</td>
-            <td>{val.stack}</td>
-            <td>{val.disponibilite}</td>
-            <td>{val.mobilite}</td>
-            <td>{val.statu}</td>
-            <td>{isAdmin ? val.contact : ``}</td>
-            <td>
-              <div className="btn-group" role="group" aria-label="Basic example">
-              <th scope="col">{isAdmin ? `Profil` : ``}</th>
-              {isAdmin ? <button type="button" onClick={() => editProfil(val)} className="btn btn-info">Edit</button> : ``}  
-              {isAdmin ? <button type="button" onClick={() => deleted(val)} className="btn btn-danger">Delete</button> : ``}  
-              <button type="button" onClick={() => handleDetailClick(val.id)} className="btn btn-success">CV</button>
-              </div>
-            </td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
+    <ProfilTable
+        profilsList={profilsList}
+        isAdmin={isAdmin}
+        editProfil={editProfil}
+        deleted={deleted}
+        handleDetailClick={handleDetailClick}
+      />                                                           
     <Contact contactTitle={content.contactTitle} email={content.email} linkedin={content.linkedin} />
   </div>
 

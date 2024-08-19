@@ -67,9 +67,9 @@ const ProfilFormulaire = () => {
 
       Swal.fire({
         title: "<strong>Profil sauvegardé!</strong>",
-        html: "<i>Votre profil<strong>" + profil + "</strong> et experiences sont sauvegardé!</i>",
+        html: "<i>Votre profil<strong>" + profil + "</strong> et experiences sont sauvegardé. Votre profil sera bientot validé</i>",
         icon: "success",
-        timer: 3000,
+        timer: 4000,
       });
 
       // Reset form
@@ -90,6 +90,55 @@ const ProfilFormulaire = () => {
       console.error("There was an error!", error);
     }
   };
+
+  const generateYears = () => {
+    const years = [];
+    for (let i = 2; i <= 30; i++) {
+      years.push(i);
+    }
+    return years;
+  };
+
+  const generateTjm = () => {
+    const years = [];
+    for (let i = 0; i <= 1000; i+=10) {
+      years.push(i);
+    }
+    return years;
+  };
+
+  const generateDisponibilite = () => {
+    const disponible = [];
+    for (let i = 0; i <= 60; i++) {
+      disponible.push("Disponible sous " +i+ " jours");
+    }
+    return disponible;
+  };
+
+  const generateMobilite = () => {
+    return [
+      "Île-de-France",
+      "Auvergne-Rhône-Alpes",
+      "Bourgogne-Franche-Comté",
+      "Bretagne",
+      "Centre-Val de Loire",
+      "Corse",
+      "Grand Est",
+      "Hauts-de-France",
+      "Normandie",
+      "Nouvelle-Aquitaine",
+      "Occitanie",
+      "Pays de la Loire",
+      "Provence-Alpes-Côte d'Azur"
+    ];
+  };
+
+  const years = generateYears();
+  const tjms = generateTjm();
+  const dispo = generateDisponibilite();
+  const mobil = generateMobilite();
+  
+
 
   return (
     <div className="d-flex justify-content-center align-items-center min-vh-100">
@@ -127,30 +176,38 @@ const ProfilFormulaire = () => {
             </div>
             <div className="input-group mb-3">
               <span className="input-group-text" id="basic-addon1">Années d'expérience:</span>
-              <input
-                type="text"
+              <select
+                className="form-select"
                 onChange={(e) => setExperience(e.target.value)}
-                className="form-control"
-                placeholder="Ex: 5"
                 value={experience || ''}
-                aria-label="Ex: 5"
-                aria-describedby="basic-addon1"
+                aria-label="Années d'expérience"
                 required
-              />
-            </div>
+              >
+                <option value="">...</option>
+                {years.map(year => (
+                  <option key={year} value={year}>
+                    {year}
+                  </option>
+                ))}
+              </select>
+            </div>  
             <div className="input-group mb-3">
               <span className="input-group-text" id="basic-addon1">TJM:</span>
-              <input
-                type="number"
+              <select
+                className="form-select"
                 onChange={(e) => setTjm(e.target.value)}
-                className="form-control"
-                placeholder="Ex: 450"
-                value={tjm || ''}
-                aria-label="Ex: 450"
-                aria-describedby="basic-addon1"
+                value={tjms || ''}
+                aria-label="TJM"
                 required
-              />
-            </div>
+              >
+                <option value="">...</option>
+                {tjms.map(tjms=> (
+                  <option key={tjms} value={tjms}>
+                    {tjms}
+                  </option>
+                ))}
+              </select>
+            </div> 
             <div className="input-group mb-3">
               <span className="input-group-text" id="basic-addon1">Stack technique:</span>
               <input
@@ -166,30 +223,39 @@ const ProfilFormulaire = () => {
             </div>
             <div className="input-group mb-3">
               <span className="input-group-text" id="basic-addon1">Disponibilités:</span>
-              <input
-                type="text"
+              <select
+                className="form-select"
                 onChange={(e) => setDisponibilite(e.target.value)}
-                className="form-control"
-                placeholder="Disponible sous 15 Jours"
-                value={disponibilite || ''}
-                aria-label="Disponible sous 15 Jours"
-                aria-describedby="basic-addon1"
+                value={dispo || ''}
+                aria-label="Disponibilités"
                 required
-              />
-            </div>
+              >
+                <option value="">...</option>
+                <option value="Dispoonible">Disponible</option>
+                {dispo.map(dispo=> (
+                  <option key={dispo} value={dispo}>
+                    {dispo}
+                  </option>
+                ))}
+              </select>
+            </div> 
             <div className="input-group mb-3">
               <span className="input-group-text" id="basic-addon1">Mobilité:</span>
-              <input
-                type="text"
+              <select
+                className="form-select"
                 onChange={(e) => setMobilite(e.target.value)}
-                className="form-control"
-                placeholder="Ile de France..."
-                value={mobilite || ''}
-                aria-label="Ile de France..."
-                aria-describedby="basic-addon1"
+                value={mobil || ''}
+                aria-label="Mobilité"
                 required
-              />
-            </div>
+              >
+                <option value="">...</option>
+                {mobil.map(Mobilité=> (
+                  <option key={Mobilité} value={Mobilité}>
+                    {Mobilité}
+                  </option>
+                ))}
+              </select>
+            </div> 
             <div className="input-group mb-3">
               <span className="input-group-text" id="basic-addon1">Status:</span>
               <select

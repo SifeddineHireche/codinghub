@@ -1,0 +1,113 @@
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+.header-container {
+  position: relative;
+  background-color: transparent;
+}
+
+.bg-image {
+  background-image: url('./8856.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+header {
+  background: rgba(0, 0, 0, 0);
+  color: white;
+  text-align: center;
+  padding: 100px 20px;
+}
+
+.btn-primary {
+  background-color: #6610f2;
+  border-color: #6610f2;
+}
+
+.btn-primary:hover {
+  background-color: #520dc2;
+  border-color: #520dc2;
+}
+
+.nav-link:hover {
+  color: blue;
+}
+
+.rgb-text {
+  color: #ffffff;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.7), 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.rgb-text-black {
+  color: black;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.7), 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.experience-section {
+  background-color: #ffffff; /* Cambiado a blanco */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.experience-image {
+  max-width: 80px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+
+}
+
+.experience-content {
+  padding: 10px;
+  color:black
+}
+
+.experience-title {
+  color: #333;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.experience-text {
+  color: #333;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.experience-link {
+  color: #007bff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.experience-link:hover {
+  color: #0056b3;
+}
+
+.shiny-text {
+  color: #000;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.5), 
+               0 0 10px rgba(255, 255, 255, 0.7), 
+               0 0 20px rgba(255, 255, 255, 0.9), 
+               0 0 40px rgba(0, 191, 255, 0.8), 
+               0 0 80px rgba(0, 191, 255, 1), 
+               0 0 120px rgba(0, 191, 255, 1), 
+               0 0 200px rgba(0, 191, 255, 1); 
+              }

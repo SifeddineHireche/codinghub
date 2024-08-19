@@ -73,7 +73,7 @@ const firstUniqueTitre = uniqueTitre[0];
       email: "hireche8@gmail.com",
       linkedin: "sifeddine-hireche-b4a578148",
         titleSection1: firstUniqueExperience+ "  ans d'expérience",
-      contentSection1: donnesList.map(val => val.titre)  + " depuis "+firstUniqueExperience+ " ans d'experience, ayant colaboré dans plusiers projets. J'apport des solutions a vos problématiques.",
+      contentSection1: uniqueTitre  + " depuis "+firstUniqueExperience+ " ans d'experience, ayant colaboré dans plusiers projets. J'apport des solutions a vos problématiques.",
       titleSection2: "un développeur avec  une vrai vision du recrutement",
       contentSection2: "J'ai aidé plusieurs Startup a trouvé des profiles pour leur besoin en developpement grace a notre CodingHub Talent",
       titleSection3: "Frameworks modernes et en formation continue",
@@ -95,7 +95,7 @@ const firstUniqueTitre = uniqueTitre[0];
   return (
     
     <div>
-    <Header name={content.name} title={content.title} />
+    <Header className='rgb-text-black' name={content.name} title={content.title} />
    
     <About aboutTitle={content.aboutTitle} aboutDescription={content.aboutDescription} />
     <table className='tableHab'>

@@ -6,6 +6,9 @@ import CvComplet from './components/CvComplet';
 import AuthPage from './components/AuthPage';
 import ProfilFormulaire from './components/ProfilFormulaire'; 
 import Footer from './components/Footer';
+import LandingPage from './components/LandingPage';
+import CombinatedPage from './components/CombinatedPage';
+
 
 const App = () => {
   const location = useLocation();
@@ -23,7 +26,7 @@ const App = () => {
         <Route path="/home" element={<Home />} />
         <Route path="/cvComplet/:id" element={<CvComplet />} />
         <Route path="/auth" element={<AuthPage />} />
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<CombinatedPage />} />
         <Route path="/profilFormulaire" element={<ProfilFormulaire />} />
       </Routes>
       <Footer footerText="CodingHub - Collectif de Développeurs Freelance à la Recherche d'Opportunités" />
