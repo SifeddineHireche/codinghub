@@ -243,6 +243,16 @@ body {
       }
   }
 
+  .navbar-nav {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+  }
+  
+  .navbar-nav .nav-item {
+    margin-right: 10px; 
+  }
+
 .header-content {
   background: linear-gradient(135deg, #4a90e2 0%, #9013fe 100%); 
   color: white;

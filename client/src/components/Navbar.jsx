@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import avatar from '../codinghub.png';
+import '../cv.css';
 
 
 const Navbar = () => {
