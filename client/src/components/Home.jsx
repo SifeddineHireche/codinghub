@@ -164,7 +164,7 @@ const handleDetailClick = async (id) => {
 
 
     const getProfils= ()=>{
-      Axios.get("http://localhost:3001/profils").then((response)=>{
+      Axios.get("https://codinghub-1.onrender.com/profils").then((response)=>{
         setProfils(response.data);
        
       });

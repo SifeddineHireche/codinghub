@@ -9,7 +9,7 @@ import Footer from './components/Footer';
 import LandingPage from './components/LandingPage';
 import CombinatedPage from './components/CombinatedPage';
 
-
+const URL = import.meta.env.VITE_BACKEND_URL || "http//localhost:3000"
 const App = () => {
   const location = useLocation();
   const hideNavbarRoutes = ['/cvComplet/:id'];
