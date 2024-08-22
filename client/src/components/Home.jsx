@@ -8,10 +8,8 @@ import '../App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
-import { Resend } from 'resend';
 
 const notif = withReactContent(Swal);
-
 const Home = () => {
 
   const [profil,setProfil] = useState("");
