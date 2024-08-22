@@ -45,12 +45,17 @@ const LandingPage = () => {
        
     <div>   
     <table className='tableHab'>
+    <tbody> 
+    <tr> 
     <td><ExperienceSection  titleSection={content.titleSection3} contentSection= {content.contentCodingHub} image={comunite}/></td>
     <td><ExperienceSection  titleSection={content.titleSection3} contentSection= {content.contentTjm} image={deal} /></td>
     <td><ExperienceSection  titleSection={content.titleSection3} contentSection= {content.contentLink} image={businessmen}  links={[
           { text: content.linkTextBeCod, to: content.linkToBeCod },
           { text: content.linkTextProfil, to: content.linkToProfil }
         ]}/></td>
+    </tr>
+    </tbody>
+    
     </table>   
   </div>
  </div>

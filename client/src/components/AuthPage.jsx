@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
 import avatar from '../codinghub.png'; 
+import config from '../config'; // Importa la configuración
 
 const MySwal = withReactContent(Swal);
 
@@ -29,9 +30,10 @@ const AuthPage = () => {
     e.preventDefault();
   
     const endpoint = isLogin ? '/login' : '/register';
+    const url = `${config.backendUrl}${endpoint}`; // Usa la URL de la configuración
   
     try {
-      const response = await axios.post(`http://localhost:3001${endpoint}`, formData);
+      const response = await axios.post(url, formData);
       if (isLogin) {
         localStorage.setItem('token', response.data.token);
         localStorage.setItem('userName', response.data.userName); 
