@@ -6,7 +6,7 @@ import reportWebVitals from './reportWebVitals';
 const backendUrl = process.env.REACT_APP_BACKEND_URL  || "http://localhost:3000";
 
 console.log(`Backend URL: ${backendUrl}`);
-  alert(`Backend URL: ${backendUrl}`),
+  alert(`Backend URL: ${backendUrl}`);
 //console.log(import.meta.env.VITE_BACKEND_URL);
 console.log(backendUrl);
 
