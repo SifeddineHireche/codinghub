@@ -42,6 +42,9 @@ const db = new pg.Pool({
     user: DB_USER,
     password: DB_PASSWORD,
     port: DB_PORT,
+    ssl: {
+        rejectUnauthorized: false // Ajusta esta configuración según las necesidades de tu proveedor
+    }
 });
 
 app.get("/ping", async (req, res) => {

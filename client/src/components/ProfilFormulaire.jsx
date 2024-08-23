@@ -4,10 +4,7 @@ import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
 import { useNavigate } from "react-router-dom"; 
 
-
-
 const notif = withReactContent(Swal);
-
 
 const ProfilFormulaire = () => {
   const [profil, setProfil] = useState("");
@@ -67,7 +64,7 @@ const ProfilFormulaire = () => {
 
       Swal.fire({
         title: "<strong>Profil sauvegardé!</strong>",
-        html: "<i>Votre profil<strong>" + profil + "</strong> et experiences sont sauvegardé. Votre profil sera bientot validé</i>",
+        html: "<i>Votre profil<strong>" + profil + "</strong> et experiences sont sauvegardés. Votre profil sera bientôt validé</i>",
         icon: "success",
         timer: 4000,
       });
@@ -83,9 +80,7 @@ const ProfilFormulaire = () => {
       setStatu("");
       setContact("");
       setExperiences([{ nom: "", anneDebut: "", anneFin: "", entreprise: "", description: "" }]);
-      navigate(`/cvComplet/${profilId}`)
-
-
+      navigate(`/cvComplet/${profilId}`);
     } catch (error) {
       console.error("There was an error!", error);
     }
@@ -100,17 +95,17 @@ const ProfilFormulaire = () => {
   };
 
   const generateTjm = () => {
-    const years = [];
-    for (let i = 0; i <= 1000; i+=10) {
-      years.push(i);
+    const tjm = [];
+    for (let i = 0; i <= 1000; i += 10) {
+      tjm.push(i); // Cambiado de `years.push(i)` a `tjm.push(i)`
     }
-    return years;
+    return tjm;
   };
 
   const generateDisponibilite = () => {
     const disponible = [];
     for (let i = 0; i <= 60; i++) {
-      disponible.push("Disponible sous " +i+ " jours");
+      disponible.push("Disponible sous " + i + " jours");
     }
     return disponible;
   };
@@ -137,8 +132,6 @@ const ProfilFormulaire = () => {
   const tjms = generateTjm();
   const dispo = generateDisponibilite();
   const mobil = generateMobilite();
-  
-
 
   return (
     <div className="d-flex justify-content-center align-items-center min-vh-100">
@@ -154,9 +147,9 @@ const ProfilFormulaire = () => {
                 type="text"
                 onChange={(e) => setProfil(e.target.value)}
                 className="form-control"
-                placeholder="Nom prenom"
+                placeholder="Nom prénom"
                 value={profil || ''}
-                aria-label="Nom prenom"
+                aria-label="Nom prénom"
                 aria-describedby="basic-addon1"
                 required
               />
@@ -167,9 +160,9 @@ const ProfilFormulaire = () => {
                 type="text"
                 onChange={(e) => setTitre(e.target.value)}
                 className="form-control"
-                placeholder="Ex: developpeur java fullstack"
+                placeholder="Ex: développeur java fullstack"
                 value={titre || ''}
-                aria-label="Ex: developpeur java fullstack"
+                aria-label="Ex: développeur java fullstack"
                 aria-describedby="basic-addon1"
                 required
               />
@@ -196,14 +189,14 @@ const ProfilFormulaire = () => {
               <select
                 className="form-select"
                 onChange={(e) => setTjm(e.target.value)}
-                value={tjms || ''}
+                value={tjm || ''}
                 aria-label="TJM"
                 required
               >
                 <option value="">...</option>
-                {tjms.map(tjms=> (
-                  <option key={tjms} value={tjms}>
-                    {tjms}
+                {tjms.map(tjm => (
+                  <option key={tjm} value={tjm}>
+                    {tjm}
                   </option>
                 ))}
               </select>
@@ -226,13 +219,13 @@ const ProfilFormulaire = () => {
               <select
                 className="form-select"
                 onChange={(e) => setDisponibilite(e.target.value)}
-                value={dispo || ''}
+                value={disponibilite || ''}
                 aria-label="Disponibilités"
                 required
               >
                 <option value="">...</option>
-                <option value="Dispoonible">Disponible</option>
-                {dispo.map(dispo=> (
+                <option value="Disponible">Disponible</option>
+                {dispo.map(dispo => (
                   <option key={dispo} value={dispo}>
                     {dispo}
                   </option>
@@ -244,15 +237,15 @@ const ProfilFormulaire = () => {
               <select
                 className="form-select"
                 onChange={(e) => setMobilite(e.target.value)}
-                value={mobil || ''}
+                value={mobilite || ''}
                 aria-label="Mobilité"
                 required
               >
                 <option value="">...</option>
-                <option value="100 % teletravail">100 % télétravail</option>
-                {mobil.map(Mobilité=> (
-                  <option key={Mobilité} value={Mobilité}>
-                    {Mobilité}
+                <option value="100 % télétravail">100 % télétravail</option>
+                {mobil.map(mobilite => (
+                  <option key={mobilite} value={mobilite}>
+                    {mobilite}
                   </option>
                 ))}
               </select>
@@ -263,7 +256,7 @@ const ProfilFormulaire = () => {
                 className="form-select"
                 onChange={(e) => setStatu(e.target.value)}
                 value={statu || ''}
-                aria-label="..."
+                aria-label="Status"
                 required
               >
                 <option value="">...</option>
@@ -285,10 +278,10 @@ const ProfilFormulaire = () => {
               />
             </div>
 
-            <h4>Experiences</h4>
+            <h4>Expériences</h4>
             {experiences.map((exp, index) => (
               <div key={index} className="card mb-3 p-2 text-start">
-                 <div className="input-group mb-2">
+                <div className="input-group mb-2">
                   <span className="input-group-text">Entreprise:</span>
                   <input
                     type="text"
@@ -316,19 +309,18 @@ const ProfilFormulaire = () => {
                   <input
                     type="text"
                     className="form-control"
-                     placeholder="Ex: 07-2022"
+                    placeholder="Ex: 07-2022"
                     name="anneFin"
                     value={exp.anneFin}
                     onChange={(event) => handleExperienceChange(index, event)}
                     required
                   />
                 </div>
-               
                 <div className="input-group mb-2">
                   <span className="input-group-text">Description:</span>
                   <textarea
                     className="form-control"
-                    placeholder="Ex: Developpement d'une Api..."
+                    placeholder="Ex: Développement d'une API..."
                     name="description"
                     value={exp.description}
                     onChange={(event) => handleExperienceChange(index, event)}
@@ -338,7 +330,7 @@ const ProfilFormulaire = () => {
               </div>
             ))}
             <button type="button" className="btn btn-primary mb-3" onClick={handleAddExperience}>
-              Ajouter une experience
+              Ajouter une expérience
             </button>
 
             <div className="card-footer text-muted">
@@ -347,10 +339,8 @@ const ProfilFormulaire = () => {
               </button>
             </div>
           </form>
-         
         </div>
       </div>
-      
     </div>
   );
 };

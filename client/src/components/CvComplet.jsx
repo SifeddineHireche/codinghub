@@ -99,8 +99,8 @@ const firstUniqueTitre = uniqueTitre[0];
    
     <About aboutTitle={content.aboutTitle} aboutDescription={content.aboutDescription} />
     <table className='tableHab'>
-    <tbody> {/* Asegúrate de envolver tus <td> en un <tbody> */}
-    <tr> {/* Asegúrate de que cada fila esté dentro de un <tr> */}
+    <tbody> 
+    <tr> 
     <td><ExperienceSection titleSection={content.titleSection1} contentSection= {content.contentSection1} image = {checkImage}/></td>
      <td><ExperienceSection titleSection={content.titleSection3} contentSection= {content.contentSection3} image={outilsImage}/></td>
     </tr>

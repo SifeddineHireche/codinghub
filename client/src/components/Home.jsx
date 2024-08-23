@@ -153,6 +153,7 @@ const Home = () => {
     navigate(`/cvComplet/${id}`);
   };
 
+  alert("profils: "+ `${backendUrl}/profils`);
   const getProfils = () => {
     Axios.get(`${backendUrl}/profils`).then((response) => {
       setProfils(response.data);
@@ -170,6 +171,7 @@ const Home = () => {
       setIsAdmin(false);
     }
   }, []);
+  getProfils();
 
   const content = {
     contactTitle: "Contact",
