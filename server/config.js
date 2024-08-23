@@ -1,7 +1,7 @@
 
 
 const FRONTEND_URL = process.env.FRONTEND_URL || "http://localhost:3000";
-const DB_HOST = process.env.DB_HOST || "dpg-cr2bk4tsvqrc73cmi3o0-a";
+const DB_HOST = process.env.DB_HOST || "dpg-cr2bk4tsvqrc73cmi3o0-a.oregon-postgres.render.com";
 const DB_USER = process.env.DB_USER || "postgres_codinghub_user";
 const DB_PASSWORD = process.env.DB_PASSWORD || "HbKSCd9tcHrUfsuMVNEXmblSCRgOCbwB";
 const DB_DATABASE = process.env.DB_DATABASE || "postgres_codinghub";

@@ -153,7 +153,6 @@ const Home = () => {
     navigate(`/cvComplet/${id}`);
   };
 
-  alert("profils: "+ `${backendUrl}/profils`);
   const getProfils = () => {
     Axios.get(`${backendUrl}/profils`).then((response) => {
       setProfils(response.data);
@@ -188,8 +187,6 @@ const Home = () => {
               EMPLOYEERS DATA
             </div>
             <div className="card-body">
-              {/* Input fields for adding and editing */}
-              {/* ... */}
             </div>
             <div className="card-footer text-muted">
               {edit ? (
