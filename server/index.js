@@ -27,6 +27,15 @@ app.use(
     })
 );
 
+
+// Imprimir las configuraciones de la base de datos
+console.log('Database Configuration:');
+console.log('Host:', DB_HOST);
+console.log('Database:', DB_DATABASE);
+console.log('User:', DB_USER);
+console.log('Password:', DB_PASSWORD ? '***' : 'Not provided'); // No imprimir la contraseña
+console.log('Port:', DB_PORT);
+
 const db = new pg.Pool({
     host: DB_HOST,
     database: DB_DATABASE,
