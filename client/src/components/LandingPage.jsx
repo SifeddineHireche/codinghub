@@ -5,9 +5,7 @@ import comunite from '../comunite.png';
 import deal from '../deal.png'; 
 import businessmen from '../businessmen.jpg'; 
 import '../LandingPage.css';
-import outilsImage from '../outils.jpg'; 
 import '../cv.css';
-import { Link, useNavigate } from 'react-router-dom';
 import ExperienceSection from './ExperienceSection'; 
 
 const content = {
@@ -49,7 +47,7 @@ const LandingPage = () => {
     <tr> 
     <td><ExperienceSection  titleSection={content.titleSection3} contentSection= {content.contentCodingHub} image={comunite}/></td>
     <td><ExperienceSection  titleSection={content.titleSection3} contentSection= {content.contentTjm} image={deal} /></td>
-    <td><ExperienceSection  titleSection={content.titleSection3} contentSection= {content.contentLink} image={businessmen}  links={[
+    <td><ExperienceSection  titleSection={content.titleSection3} contentSection= "" image={businessmen}  links={[
           { text: content.linkTextBeCod, to: content.linkToBeCod },
           { text: content.linkTextProfil, to: content.linkToProfil }
         ]}/></td>

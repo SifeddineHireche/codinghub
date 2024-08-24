@@ -28,14 +28,6 @@ app.use(
 );
 
 
-// Imprimir las configuraciones de la base de datos
-console.log('Database Configuration:');
-console.log('Host:', DB_HOST);
-console.log('Database:', DB_DATABASE);
-console.log('User:', DB_USER);
-console.log('Password:', DB_PASSWORD ? '***' : 'Not provided'); // No imprimir la contraseña
-console.log('Port:', DB_PORT);
-
 const db = new pg.Pool({
     host: DB_HOST,
     database: DB_DATABASE,
@@ -64,7 +56,7 @@ app.post('/create', async (req, res) => {
     try {
         const result = await db.query(
             'INSERT INTO profils (profil, titre, experience, tjm, stack, disponibilite, mobilite, statu, contact, isApproved) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING *',
-            [profil, titre, experience, tjm, stack, disponibilite, mobilite, statu, contact, false]
+            [profil, titre, experience, tjm, stack, disponibilite, mobilite, statu, contact, true]
         );
         res.send(result.rows[0]);
     } catch (err) {

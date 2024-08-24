@@ -30,7 +30,7 @@ const AuthPage = () => {
     e.preventDefault();
   
     const endpoint = isLogin ? '/login' : '/register';
-    const url = `${config.backendUrl}${endpoint}`; // Usa la URL de la configuración
+    const url = `${config.backendUrl}${endpoint}`;
   
     try {
       const response = await axios.post(url, formData);
@@ -140,7 +140,7 @@ const AuthPage = () => {
               className="btn btn-link"
               onClick={() => setIsLogin(!isLogin)}
             >
-              {isLogin ? 'Create an account' : 'Already have an account? Login'}
+            
             </button>
           </div>
         </div>

@@ -7,7 +7,6 @@ const ProfilTable = ({ profilsList, isAdmin, editProfil, deleted, handleDetailCl
 
   const filteredProfilsList = isAdmin ? profilsList : profilsList.filter(val => val.profil === '');
 
-  console.log('filteredProfilsList   List:', filteredProfilsList);
     
   const columns = useMemo(
     () => [
@@ -59,7 +58,6 @@ const ProfilTable = ({ profilsList, isAdmin, editProfil, deleted, handleDetailCl
     [isAdmin, editProfil, deleted, handleDetailClick]
   );
 
-  console.log('Columns:', columns);
 
     const table = useMaterialReactTable({
       columns,

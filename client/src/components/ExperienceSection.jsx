@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, } from 'react-router-dom';
 
 
 
@@ -15,11 +15,11 @@ const ExperienceSection = ({ titleSection, contentSection, image, links}) => (
             <Link
               to={link.to}
               style={{
-                color: 'black',
+                color: 'blue',
                 textDecoration: 'none',
               }}
               onMouseOver={(e) => e.target.style.color = 'blue'}
-              onMouseOut={(e) => e.target.style.color = 'black'}
+              onMouseOut={(e) => e.target.style.color = 'blue'}
             >
               {link.text}
             </Link>

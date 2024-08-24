@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import avatar from '../codinghub.png';
 import '../cv.css';
 
@@ -8,7 +8,8 @@ const Navbar = () => {
   const handleLogout = () => {
     localStorage.removeItem('token');
     localStorage.removeItem('userName');
-    window.location.href = '/auth'; // Redirige al usuario a la página de autenticación
+    localStorage.removeItem('role');
+    window.location.href = '/auth'; 
   };
 
 return (
@@ -30,7 +31,14 @@ return (
         <ul className="navbar-nav ms-auto"> 
           <li className="nav-item">
             <span className="navbar-text">
-              {localStorage.getItem('userName') ? `Welcome, ${localStorage.getItem('userName')}` : ""}
+              {localStorage.getItem('userName') ? `Welcome, ${localStorage.getItem('userName')}` :  (
+              <li className="nav-item">
+                {/* Botón Log In con fondo blanco */}
+                <Link className="btn btn-outline-primary" to="/auth">
+                  Log In
+                </Link>
+              </li>
+            )}
             </span>
           </li>
           {localStorage.getItem('token') && (

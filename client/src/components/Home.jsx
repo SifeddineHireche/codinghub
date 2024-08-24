@@ -30,6 +30,9 @@ const Home = () => {
   
   const backendUrl = config.backendUrl; // Usa la configuración
 
+  // Verifica si hay un token para determinar si el usuario está autenticado
+  const isAuthenticated = !!localStorage.getItem('token');
+
   const add = () => {
     Axios.post(`${backendUrl}/create`, {
       profil,
@@ -160,17 +163,21 @@ const Home = () => {
   };
 
   useEffect(() => {
-    const userName = localStorage.getItem('userName');
-    const userRole = userName ? "admin" : "Guest";
+    const userRole = localStorage.getItem('role');
+    const username = localStorage.getItem('username');
 
-    console.log("userRole: " + userRole);
-    if (userRole === 'admin') {
+    if (userRole === 'admin' && isAuthenticated)  {
       setIsAdmin(true);
     } else {
       setIsAdmin(false);
     }
   }, []);
-  getProfils();
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      getProfils(); 
+    }
+  }, [isAuthenticated]);
 
   const content = {
     contactTitle: "Contact",
@@ -180,34 +187,150 @@ const Home = () => {
 
   return (
     <div className="container">
-      {isAdmin && (
-        <>
-          <div className="card text-center">
-            <div className="card-header">
-              EMPLOYEERS DATA
+     {isAdmin && (
+      <>
+        <div className="card text-center">
+          <div className="card-header">
+            EMPLOYEERS DATA
+          </div>
+          <div className="card-body">
+            <div className="input-group mb-3">
+              <span className="input-group-text" id="basic-addon1">Profil:</span>
+              <input
+                type="text"
+                onChange={(event) => setProfil(event.target.value)}
+                className="form-control"
+                placeholder="Set profil"
+                value={profil || ''}
+                aria-label="Set profil"
+                aria-describedby="basic-addon1"
+              />
             </div>
-            <div className="card-body">
+            <div className="input-group mb-3">
+              <span className="input-group-text" id="basic-addon1">Titre:</span>
+              <input
+                type="text"
+                onChange={(event) => setTitre(event.target.value)}
+                className="form-control"
+                placeholder="Set titre"
+                value={titre || ''}
+                aria-label="Set titre"
+                aria-describedby="basic-addon1"
+              />
             </div>
-            <div className="card-footer text-muted">
-              {edit ? (
-                <div>
-                  <button className="btn btn-warning m-2" onClick={update}>Update</button>
-                  <button className="btn btn-info m-2" onClick={emptyValues}>Cancel</button>
-                </div>
-              ) : (
-                <button className="btn btn-success" onClick={add}>Register</button>
-              )}
+            <div className="input-group mb-3">
+              <span className="input-group-text" id="basic-addon1">Années d'expérience:</span>
+              <input
+                type="text"
+                onChange={(event) => setExperience(event.target.value)}
+                className="form-control"
+                placeholder="Set experience"
+                value={experience || ''}
+                aria-label="Set experience"
+                aria-describedby="basic-addon1"
+              />
+            </div>
+            <div className="input-group mb-3">
+              <span className="input-group-text" id="basic-addon1">Tjm:</span>
+              <input
+                type="number"
+                onChange={(event) => setTjm(event.target.value)}
+                className="form-control"
+                placeholder="Set tjm"
+                value={tjm || ''}
+                aria-label="Set tjm"
+                aria-describedby="basic-addon1"
+              />
+            </div>
+            <div className="input-group mb-3">
+              <span className="input-group-text" id="basic-addon1">Stack tecknique:</span>
+              <input
+                type="text"
+                onChange={(event) => setStack(event.target.value)}
+                className="form-control"
+                placeholder="Set stack"
+                value={stack || ''}
+                aria-label="Set stack"
+                aria-describedby="basic-addon1"
+              />
+            </div>
+            <div className="input-group mb-3">
+              <span className="input-group-text" id="basic-addon1">Disponibilités:</span>
+              <input
+                type="text"
+                onChange={(event) => setDisponibilite(event.target.value)}
+                className="form-control"
+                placeholder="Set disponibilite"
+                value={disponibilite || ''}
+                aria-label="Set disponibilite"
+                aria-describedby="basic-addon1"
+              />
+            </div>
+            <div className="input-group mb-3">
+              <span className="input-group-text" id="basic-addon1">Mobilité:</span>
+              <input
+                type="text"
+                onChange={(event) => setMobilite(event.target.value)}
+                className="form-control"
+                placeholder="Set mobilite"
+                value={mobilite || ''}
+                aria-label="Set mobilite"
+                aria-describedby="basic-addon1"
+              />
+            </div>
+            <div className="input-group mb-3">
+              <span className="input-group-text" id="basic-addon1">Status:</span>
+              <input
+                type="text"
+                onChange={(event) => setStatu(event.target.value)}
+                className="form-control"
+                placeholder="Set status"
+                value={statu || ''}
+                aria-label="Set status"
+                aria-describedby="basic-addon1"
+              />
+            </div>
+            <div className="input-group mb-3">
+              <span className="input-group-text" id="basic-addon1">Contact:</span>
+              <input
+                type="text"
+                onChange={(event) => setContact(event.target.value)}
+                className="form-control"
+                placeholder="Set contact"
+                value={contact || ''}
+                aria-label="Set contact"
+                aria-describedby="basic-addon1"
+              />
+            </div>
+          </div>
+          <div className="card-footer text-muted">
+            {edit ? (
+              <div>
+                <button className="btn btn-warning m-2" onClick={update}>Update</button>
+                <button className="btn btn-info m-2" onClick={emptyValues}>Cancel</button>
+              </div>
+            ) : (
+              <button className="btn btn-success" onClick={add}>Register</button>
+            )}
+       
             </div>
           </div>
         </>
       )}
-      <ProfilTable
-        profilsList={profilsList}
-        isAdmin={isAdmin}
-        editProfil={editProfil}
-        deleted={deleted}
-        handleDetailClick={handleDetailClick}
-      />
+      {isAuthenticated ? (
+        <ProfilTable
+          profilsList={profilsList}
+          isAdmin={isAdmin}
+          editProfil={editProfil}
+          deleted={deleted}
+          handleDetailClick={handleDetailClick}
+        />
+      ) : (
+        <div className="text-center mt-5">
+          <h2>Veuillez vous connecter pour voir les profils</h2>
+          <Link to="/auth" className="btn btn-primary">Se connecter</Link>
+        </div>
+      )}
       <Contact contactTitle={content.contactTitle} email={content.email} linkedin={content.linkedin} />
     </div>
   );

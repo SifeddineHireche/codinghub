@@ -6,7 +6,6 @@ import CvComplet from './components/CvComplet';
 import AuthPage from './components/AuthPage';
 import ProfilFormulaire from './components/ProfilFormulaire'; 
 import Footer from './components/Footer';
-import LandingPage from './components/LandingPage';
 import CombinatedPage from './components/CombinatedPage';
 
 const App = () => {
@@ -27,6 +26,8 @@ const App = () => {
         <Route path="/auth" element={<AuthPage />} />
         <Route path="/" element={<CombinatedPage />} />
         <Route path="/profilFormulaire" element={<ProfilFormulaire />} />
+        <Route path="/authentification" element={<AuthPage />} />
+        
       </Routes>
       <Footer footerText="CodingHub - Collectif de Développeurs Freelance à la Recherche d'Opportunités" />
     </div>
