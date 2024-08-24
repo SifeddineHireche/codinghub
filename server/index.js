@@ -58,7 +58,9 @@ app.post('/create', async (req, res) => {
             'INSERT INTO profils (profil, titre, experience, tjm, stack, disponibilite, mobilite, statu, contact, isApproved) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING *',
             [profil, titre, experience, tjm, stack, disponibilite, mobilite, statu, contact, false]
         );
-        res.send(result.rows[0]);
+        const insertId = result.rows[0].id;  // Asegúrate de devolver el ID
+        console.log(insertId);
+    res.status(201).json({ insertId });
     } catch (err) {
         console.error(err);
         res.status(500).send("Error inserting data");

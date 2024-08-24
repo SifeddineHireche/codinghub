@@ -65,8 +65,8 @@ const firstUniqueTitre = uniqueTitre[0];
       aboutDescription: "Je suis "+uniqueTitre+ " avec une expérience dans la création de sites Web modernes et fonctionnels. Je suis passionné par le design et la technologie.",
       timelineTitle: "Experiences",
       projects: donnesList.map((val, index) => ({
-        year: val.anneDebut +" - "+ val.anneFin  , // Suponiendo que hay un campo 'annee' en los objetos
-        title: val.entreprise, // Combinación de 'nom' y 'lieu'
+        year: val.annedebut +" - "+ val.annefin  , 
+        title: val.entreprise, 
         description: val.description
       })),
       contactTitle: "Contact",

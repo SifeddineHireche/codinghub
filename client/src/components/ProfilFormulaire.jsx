@@ -38,6 +38,7 @@ const ProfilFormulaire = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
+    console.log(`${backendUrl}/create`);
     try {
       const profilResponse = await Axios.post(`${backendUrl}/create`, {
         profil,
@@ -50,7 +51,7 @@ const ProfilFormulaire = () => {
         statu,
         contact,
       });
-
+      console.log(profilResponse.data);
       const profilId = profilResponse.data.insertId;
 
       for (const exp of experiences) {
@@ -66,7 +67,7 @@ const ProfilFormulaire = () => {
 
       Swal.fire({
         title: "<strong>Profil sauvegardé!</strong>",
-        html: "<i>Votre profil<strong>" + profil + "</strong> et experiences sont sauvegardés. Votre profil sera bientôt validé</i>",
+        html: "<i>Votre profil<strong> " + profil + "</strong> et experiences sont sauvegardés. Votre profil sera bientôt validé</i>",
         icon: "success",
         timer: 4000,
       });
