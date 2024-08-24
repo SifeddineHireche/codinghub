@@ -56,7 +56,7 @@ app.post('/create', async (req, res) => {
     try {
         const result = await db.query(
             'INSERT INTO profils (profil, titre, experience, tjm, stack, disponibilite, mobilite, statu, contact, isApproved) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING *',
-            [profil, titre, experience, tjm, stack, disponibilite, mobilite, statu, contact, true]
+            [profil, titre, experience, tjm, stack, disponibilite, mobilite, statu, contact, false]
         );
         res.send(result.rows[0]);
     } catch (err) {

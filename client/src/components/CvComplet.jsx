@@ -3,29 +3,29 @@ import Header from './Header';
 import About from './About';
 import Timeline from './Timeline';
 import Contact from './Contact';
-import Footer from './Footer';
 import ExperienceSection from './ExperienceSection'; 
 import checkImage from '../checkOK.png'; 
-import bookImage from '../book.jpg'; 
 import outilsImage from '../outils.jpg'; 
 import '../cv.css';
 import Axios from 'axios';
 import { useParams } from 'react-router-dom';
-import i18n from 'i18next';
-import { initReactI18next } from 'react-i18next';
+import config from '../config';
 
 
 
 
 const CvComplet = () => {
+
+
   const { id } = useParams();
   const [donnesList,setDonnes]  = useState([]);
   console.log(donnesList);
+  const backendUrl = config.backendUrl;
 
     useEffect(() => {
       const fetchDonnes = async () => {
           try {
-              const response = await Axios.get(`http://localhost:3001/findProfil/${id}`);
+              const response = await Axios.get(`${backendUrl}/findProfil/${id}`);
               setDonnes(response.data);
        
           } catch (error) {
