@@ -295,3 +295,40 @@ body {
       flex-direction: column;
     }
 }
+
+.navbar {
+  margin-bottom: 20px;
+}
+
+.avatar {
+  width: 50px; /* Ajusta el tamaño del avatar según sea necesario */
+}
+
+/* Ajustes para que el navbar se vea mejor en móviles */
+.navbar-nav {
+  text-align: center; /* Centra el contenido */
+}
+
+.navbar-nav .nav-item {
+  margin-bottom: 10px; /* Añade espacio entre los elementos del menú en dispositivos móviles */
+}
+
+@media (max-width: 768px) {
+  .navbar-nav {
+    flex-direction: column; /* Hace que los elementos se apilen verticalmente en dispositivos móviles */
+  }
+
+  .navbar-collapse {
+    text-align: center; /* Centra el contenido colapsado */
+  }
+
+  .navbar-brand img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .btn-outline-primary, .btn-outline-danger {
+    width: 100%; /* Hace que los botones ocupen el ancho completo */
+    margin-bottom: 10px; /* Añade espacio entre los botones */
+  }
+}

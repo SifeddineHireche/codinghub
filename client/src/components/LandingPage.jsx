@@ -29,7 +29,7 @@ const content = {
 const LandingPage = () => {
   return (
     <div >
-      <div className="bg-image"></div> 
+      <div className="bg-image"></div>    
       <header className="text-white text-center py-5 position-relative">
         <div className="container">
           <div className="logo-container mb-4">
@@ -41,22 +41,23 @@ const LandingPage = () => {
       </header>
 
        
-    <div>   
-    <table className='tableHab'>
-    <tbody> 
-    <tr> 
-    <td><ExperienceSection  titleSection={content.titleSection3} contentSection= {content.contentCodingHub} image={comunite}/></td>
-    <td><ExperienceSection  titleSection={content.titleSection3} contentSection= {content.contentTjm} image={deal} /></td>
-    <td><ExperienceSection  titleSection={content.titleSection3} contentSection= "" image={businessmen}  links={[
-          { text: content.linkTextBeCod, to: content.linkToBeCod },
-          { text: content.linkTextProfil, to: content.linkToProfil }
-        ]}/></td>
-    </tr>
-    </tbody>
-    
-    </table>   
-  </div>
- </div>
+      <div className="container">
+        <div className="row">
+          <div className="col-md-4 mb-4">
+            <ExperienceSection titleSection={content.titleSection3} contentSection={content.contentCodingHub} image={comunite} />
+          </div>
+          <div className="col-md-4 mb-4">
+            <ExperienceSection titleSection={content.titleSection3} contentSection={content.contentTjm} image={deal} />
+          </div>
+          <div className="col-md-4 mb-4">
+            <ExperienceSection titleSection={content.titleSection3} contentSection="" image={businessmen} links={[
+              { text: content.linkTextBeCod, to: content.linkToBeCod },
+              { text: content.linkTextProfil, to: content.linkToProfil }
+            ]} />
+          </div>
+        </div>
+      </div>
+    </div>
   );
 };
 
