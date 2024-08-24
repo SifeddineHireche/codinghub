@@ -23,6 +23,7 @@ const ProfilFormulaire = () => {
     setExperiences([...experiences, { nom: "", anneDebut: "", anneFin: "", entreprise: "", description: "" }]);
   };
 
+  const backendUrl = config.backendUrl;
   const handleExperienceChange = (index, event) => {
     const newExperiences = experiences.map((exp, expIndex) => {
       if (index === expIndex) {
@@ -37,7 +38,7 @@ const ProfilFormulaire = () => {
     event.preventDefault();
 
     try {
-      const profilResponse = await Axios.post('http://localhost:3001/create', {
+      const profilResponse = await Axios.post(`${backendUrl}/create`, {
         profil,
         titre,
         experience,
@@ -52,7 +53,7 @@ const ProfilFormulaire = () => {
       const profilId = profilResponse.data.insertId;
 
       for (const exp of experiences) {
-        await Axios.post('http://localhost:3001/createDetails', {
+        await Axios.post(`${backendUrl}/createDetails`, {
           id_profil: profilId,
           nom: exp.nom,
           anneDebut: exp.anneDebut,
