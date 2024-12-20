@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
 import avatar from '../codinghub.png'; 
-import config from '../config'; // Importa la configuración
+import config from '../config'; 
 
 const MySwal = withReactContent(Swal);
 
